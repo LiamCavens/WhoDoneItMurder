@@ -8,7 +8,7 @@ var potentialMurderers = [
   "Edwardo the 8th, King of Scunthorpe"
 ];
 
-var mansionTrip = function(murdererArray) {
+var mansionTrip = function (murdererArray) {
   var murderMeter = 0;
   var murderer;
 
@@ -18,13 +18,48 @@ var mansionTrip = function(murdererArray) {
       murderer = potentialMurderers[i];
     }
   }
-  console.log(murderer);
+  potentialMurderers.push("Big Daddy Kane");
+  return murderer;
 };
 
-mansionTrip(potentialMurderers);
+const victims = [
+  "Donald Trump",
+  "Nicola Sturgeon",
+  "Pitbull",
+  "The Beebs",
+  "Maggie Thatcher",
+  "Kim Jong-Un",
+  "Bono",
+  "Lindsey Lohan"
+];
 
-const victims = []; // yeah?
+const loopVictimsArray = function (victims) {
+  let victimRating = 0;
+  let nameOfVictim;
 
-const getMostLettersThatAccumulateToAHigherOne = function(victims) {
-    victims
+  victims.forEach(function (victim, index) {
+    const victimNumber = loopThroughVictimName(victim);
+
+    if (victimNumber > victimRating) {
+
+      victimRating = victimNumber;
+      nameOfVictim = victims[index];
+    }
+  });
+  return nameOfVictim;
 };
+
+const loopThroughVictimName = function (victim) {
+  let totalInARow = 0;
+
+  Array.from(victim).forEach(function (char, index) {
+    if (index !== 0 && char.charCodeAt(0) > victim[index - 1].charCodeAt(0)) {
+      totalInARow++;
+    }
+  });
+  return totalInARow;
+
+};
+
+console.log(mansionTrip(potentialMurderers) + " Has Slaughtered " + loopVictimsArray(victims));
+console.log(`${mansionTrip(potentialMurderers)} Has Slaughtered ${loopVictimsArray(victims)}`);
