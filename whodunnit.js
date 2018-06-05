@@ -61,5 +61,5 @@ const loopThroughVictimName = function (victim) {
 
 };
 
-console.log(mansionTrip(potentialMurderers) + " Has Slaughtered " + loopVictimsArray(victims));
+// console.log(mansionTrip(potentialMurderers) + " Has Slaughtered " + loopVictimsArray(victims));
 console.log(`${mansionTrip(potentialMurderers)} Has Slaughtered ${loopVictimsArray(victims)}`);
